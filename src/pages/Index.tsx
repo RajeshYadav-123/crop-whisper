@@ -114,8 +114,8 @@ const Index = () => {
 
       {/* Pilot Regions */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Pilot Regions</h2>
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12">Pilot Regions Across India</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
           <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -193,37 +193,342 @@ const Index = () => {
               </ul>
             </CardContent>
           </Card>
-        </div>
-      </section>
 
-      {/* API Documentation Preview */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8">API Endpoints</h2>
-          <Card className="border-border">
-            <CardContent className="p-6">
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
-                  <Badge className="bg-green-500 text-white">POST</Badge>
-                  <code className="text-sm font-mono">/api/predict</code>
-                  <span className="text-sm text-muted-foreground ml-auto">Get crop predictions</span>
-                </div>
-                <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
-                  <Badge className="bg-blue-500 text-white">GET</Badge>
-                  <code className="text-sm font-mono">/api/farms</code>
-                  <span className="text-sm text-muted-foreground ml-auto">List registered farms</span>
-                </div>
-                <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
-                  <Badge className="bg-blue-500 text-white">GET</Badge>
-                  <code className="text-sm font-mono">/api/predictions</code>
-                  <span className="text-sm text-muted-foreground ml-auto">View prediction history</span>
-                </div>
-                <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
-                  <Badge className="bg-green-500 text-white">POST</Badge>
-                  <code className="text-sm font-mono">/webhook/sms</code>
-                  <span className="text-sm text-muted-foreground ml-auto">Twilio SMS webhook</span>
-                </div>
-              </div>
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Andhra Pradesh
+              </CardTitle>
+              <CardDescription>Coastal Agriculture</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Rice, Chilli, Tobacco
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Telugu language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Karnataka
+              </CardTitle>
+              <CardDescription>Multi-Climate Zones</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Coffee, Ragi, Sugarcane
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Kannada language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Tamil Nadu
+              </CardTitle>
+              <CardDescription>Paddy Cultivation Leader</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Rice, Groundnut, Cotton
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Tamil language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Kerala
+              </CardTitle>
+              <CardDescription>Spice & Plantation Hub</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Rubber, Coconut, Pepper
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Malayalam language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Gujarat
+              </CardTitle>
+              <CardDescription>Cotton Belt Region</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Cotton, Groundnut, Wheat
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Gujarati language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Rajasthan
+              </CardTitle>
+              <CardDescription>Arid Zone Farming</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Bajra, Mustard, Barley
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Hindi language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Madhya Pradesh
+              </CardTitle>
+              <CardDescription>Soybean Capital</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Soybean, Wheat, Chickpea
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Hindi language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Uttar Pradesh
+              </CardTitle>
+              <CardDescription>Largest Agricultural State</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Wheat, Rice, Sugarcane
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Hindi language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                West Bengal
+              </CardTitle>
+              <CardDescription>Rice Bowl of India</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Rice, Jute, Tea
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Bengali language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Haryana
+              </CardTitle>
+              <CardDescription>Green Revolution Pioneer</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Wheat, Rice, Sugarcane
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Hindi language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Bihar
+              </CardTitle>
+              <CardDescription>Vegetable & Pulses Hub</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Rice, Wheat, Maize
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Hindi language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Odisha
+              </CardTitle>
+              <CardDescription>Eastern Coastal Agriculture</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Rice, Pulses, Oilseeds
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Odia language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Assam
+              </CardTitle>
+              <CardDescription>Tea & Paddy Region</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Tea, Rice, Jute
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Assamese language support
+                </li>
+              </ul>
             </CardContent>
           </Card>
         </div>
@@ -242,7 +547,7 @@ const Index = () => {
         </div>
         <div className="mt-12 pt-8 border-t border-border text-sm text-muted-foreground">
           <p>Powered by TensorFlow, Google Earth Engine, IMD Weather Data & Twilio</p>
-          <p className="mt-2">Supporting Maharashtra, Punjab & Telangana farmers with multilingual SMS alerts</p>
+          <p className="mt-2">Supporting farmers across 16 Indian states with multilingual SMS alerts</p>
         </div>
       </footer>
     </div>
