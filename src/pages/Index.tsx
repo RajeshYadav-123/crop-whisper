@@ -115,7 +115,7 @@ const Index = () => {
       {/* Pilot Regions */}
       <section className="container mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold text-center mb-12">Pilot Regions</h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -163,6 +163,32 @@ const Index = () => {
                 <li className="flex items-center gap-2">
                   <div className="h-2 w-2 rounded-full bg-primary" />
                   Punjabi language support
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Telangana
+              </CardTitle>
+              <CardDescription>Diverse Crop Portfolio</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Rice, Cotton, Turmeric
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  100+ farmers enrolled
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                  Telugu language support
                 </li>
               </ul>
             </CardContent>
@@ -216,7 +242,7 @@ const Index = () => {
         </div>
         <div className="mt-12 pt-8 border-t border-border text-sm text-muted-foreground">
           <p>Powered by TensorFlow, Google Earth Engine, IMD Weather Data & Twilio</p>
-          <p className="mt-2">Supporting Maharashtra & Punjab farmers with multilingual SMS alerts</p>
+          <p className="mt-2">Supporting Maharashtra, Punjab & Telangana farmers with multilingual SMS alerts</p>
         </div>
       </footer>
     </div>
