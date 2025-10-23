@@ -18,11 +18,11 @@ const Index = () => {
           AI-powered crop predictions for Indian farmers. Get localized weather insights and recommendations via SMS in your language.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
-          <Button size="lg" className="bg-primary hover:bg-primary-glow transition-all shadow-soft">
+          <Button size="lg" className="bg-primary hover:bg-primary-glow transition-all shadow-soft" onClick={() => window.location.href = '/access'}>
             <Smartphone className="mr-2 h-5 w-5" />
             Get SMS Updates
           </Button>
-          <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
+          <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" onClick={() => window.location.href = '/access'}>
             <Database className="mr-2 h-5 w-5" />
             View Dashboard
           </Button>
@@ -210,7 +210,7 @@ const Index = () => {
           <p className="text-lg text-muted-foreground mb-8">
             Join hundreds of farmers using AI-powered predictions to make climate-resilient decisions.
           </p>
-          <Button size="lg" className="bg-primary hover:bg-primary-glow transition-all shadow-soft">
+          <Button size="lg" className="bg-primary hover:bg-primary-glow transition-all shadow-soft" onClick={() => window.location.href = '/access'}>
             Start Free Trial
           </Button>
         </div>
