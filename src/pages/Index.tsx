@@ -216,7 +216,7 @@ const Index = () => {
         </div>
         <div className="mt-12 pt-8 border-t border-border text-sm text-muted-foreground">
           <p>Powered by TensorFlow, Google Earth Engine, IMD Weather Data & Twilio</p>
-          <p className="mt-2">Supporting Maharashtra,Punjab & Telengana farmers with multilingual SMS alerts</p>
+          <p className="mt-2">Supporting Maharashtra & Punjab farmers with multilingual SMS alerts</p>
         </div>
       </footer>
     </div>
