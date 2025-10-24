@@ -4,14 +4,23 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Smartphone, User, Lock, MapPin } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Smartphone, User, Lock, MapPin, Droplets, Ruler, Leaf, IndianRupee } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 
 const Access = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [farmerId, setFarmerId] = useState("");
-  const [location, setLocation] = useState("");
+  const [state, setState] = useState("");
+  const [district, setDistrict] = useState("");
+  const [village, setVillage] = useState("");
+  const [soilType, setSoilType] = useState("");
+  const [farmSize, setFarmSize] = useState("");
+  const [irrigation, setIrrigation] = useState("");
+  const [currentCrop, setCurrentCrop] = useState("");
+  const [budget, setBudget] = useState("");
+  const [language, setLanguage] = useState("");
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -29,10 +38,10 @@ const Access = () => {
 
   const handleFarmerLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (farmerId && location) {
+    if (farmerId && state && district && soilType && farmSize && irrigation) {
       toast({
-        title: "Access Granted!",
-        description: `Welcome back, Farmer ${farmerId}`,
+        title: "Data Submitted!",
+        description: `Climate prediction analysis started for ${district}, ${state}`,
       });
       setTimeout(() => navigate("/"), 1500);
     }
@@ -116,24 +125,168 @@ const Access = () => {
                       />
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="location">Farm Location (District)</Label>
-                    <div className="relative">
-                      <MapPin className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="state">State</Label>
+                      <Select value={state} onValueChange={setState} required>
+                        <SelectTrigger id="state">
+                          <SelectValue placeholder="Select State" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="maharashtra">Maharashtra</SelectItem>
+                          <SelectItem value="punjab">Punjab</SelectItem>
+                          <SelectItem value="telangana">Telangana</SelectItem>
+                          <SelectItem value="andhra-pradesh">Andhra Pradesh</SelectItem>
+                          <SelectItem value="karnataka">Karnataka</SelectItem>
+                          <SelectItem value="tamil-nadu">Tamil Nadu</SelectItem>
+                          <SelectItem value="kerala">Kerala</SelectItem>
+                          <SelectItem value="gujarat">Gujarat</SelectItem>
+                          <SelectItem value="rajasthan">Rajasthan</SelectItem>
+                          <SelectItem value="madhya-pradesh">Madhya Pradesh</SelectItem>
+                          <SelectItem value="uttar-pradesh">Uttar Pradesh</SelectItem>
+                          <SelectItem value="west-bengal">West Bengal</SelectItem>
+                          <SelectItem value="haryana">Haryana</SelectItem>
+                          <SelectItem value="bihar">Bihar</SelectItem>
+                          <SelectItem value="odisha">Odisha</SelectItem>
+                          <SelectItem value="assam">Assam</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="district">District</Label>
                       <Input
-                        id="location"
+                        id="district"
                         type="text"
-                        placeholder="e.g., Pune, Amritsar"
-                        value={location}
-                        onChange={(e) => setLocation(e.target.value)}
-                        className="pl-10"
+                        placeholder="Enter district"
+                        value={district}
+                        onChange={(e) => setDistrict(e.target.value)}
                         required
                       />
                     </div>
                   </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="village">Village/Town</Label>
+                    <div className="relative">
+                      <MapPin className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Input
+                        id="village"
+                        type="text"
+                        placeholder="Enter village or town name"
+                        value={village}
+                        onChange={(e) => setVillage(e.target.value)}
+                        className="pl-10"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="soilType">Soil Type</Label>
+                    <Select value={soilType} onValueChange={setSoilType} required>
+                      <SelectTrigger id="soilType">
+                        <SelectValue placeholder="Select Soil Type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="black">Black Soil (Regur)</SelectItem>
+                        <SelectItem value="red">Red Soil</SelectItem>
+                        <SelectItem value="alluvial">Alluvial Soil</SelectItem>
+                        <SelectItem value="laterite">Laterite Soil</SelectItem>
+                        <SelectItem value="sandy">Sandy Soil</SelectItem>
+                        <SelectItem value="clayey">Clayey Soil</SelectItem>
+                        <SelectItem value="loamy">Loamy Soil</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="farmSize">Farm Size (Acres)</Label>
+                      <div className="relative">
+                        <Ruler className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          id="farmSize"
+                          type="number"
+                          placeholder="e.g., 5"
+                          value={farmSize}
+                          onChange={(e) => setFarmSize(e.target.value)}
+                          className="pl-10"
+                          required
+                          step="0.1"
+                          min="0"
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="irrigation">Irrigation Type</Label>
+                      <Select value={irrigation} onValueChange={setIrrigation} required>
+                        <SelectTrigger id="irrigation">
+                          <SelectValue placeholder="Select Type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="drip">Drip Irrigation</SelectItem>
+                          <SelectItem value="sprinkler">Sprinkler</SelectItem>
+                          <SelectItem value="canal">Canal</SelectItem>
+                          <SelectItem value="well">Well/Borewell</SelectItem>
+                          <SelectItem value="rainfed">Rain-fed</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="currentCrop">Current/Previous Crop</Label>
+                    <div className="relative">
+                      <Leaf className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Input
+                        id="currentCrop"
+                        type="text"
+                        placeholder="e.g., Cotton, Wheat, Rice"
+                        value={currentCrop}
+                        onChange={(e) => setCurrentCrop(e.target.value)}
+                        className="pl-10"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="budget">Available Budget (₹)</Label>
+                    <div className="relative">
+                      <IndianRupee className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Input
+                        id="budget"
+                        type="number"
+                        placeholder="e.g., 50000"
+                        value={budget}
+                        onChange={(e) => setBudget(e.target.value)}
+                        className="pl-10"
+                        min="0"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="language">Preferred Language</Label>
+                    <Select value={language} onValueChange={setLanguage}>
+                      <SelectTrigger id="language">
+                        <SelectValue placeholder="Select Language" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="english">English</SelectItem>
+                        <SelectItem value="hindi">हिंदी (Hindi)</SelectItem>
+                        <SelectItem value="marathi">मराठी (Marathi)</SelectItem>
+                        <SelectItem value="punjabi">ਪੰਜਾਬੀ (Punjabi)</SelectItem>
+                        <SelectItem value="telugu">తెలుగు (Telugu)</SelectItem>
+                        <SelectItem value="tamil">தமிழ் (Tamil)</SelectItem>
+                        <SelectItem value="kannada">ಕನ್ನಡ (Kannada)</SelectItem>
+                        <SelectItem value="bengali">বাংলা (Bengali)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
                   <Button type="submit" className="w-full">
                     <Lock className="mr-2 h-4 w-4" />
-                    Access Dashboard
+                    Get Climate Prediction
                   </Button>
                 </form>
               </TabsContent>
