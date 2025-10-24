@@ -38,13 +38,19 @@ const Access = () => {
 
   const handleFarmerLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (farmerId && state && district && soilType && farmSize && irrigation) {
+    if (!farmerId || !state || !district || !soilType || !farmSize || !irrigation) {
       toast({
-        title: "Data Submitted!",
-        description: `Climate prediction analysis started for ${district}, ${state}`,
+        title: "Missing Information",
+        description: "Please fill all required fields",
+        variant: "destructive",
       });
-      setTimeout(() => navigate("/"), 1500);
+      return;
     }
+    toast({
+      title: "Data Submitted!",
+      description: `Climate prediction analysis started for ${district}, ${state}`,
+    });
+    setTimeout(() => navigate("/"), 1500);
   };
 
   return (
@@ -129,7 +135,7 @@ const Access = () => {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="state">State</Label>
-                      <Select value={state} onValueChange={setState} required>
+                      <Select value={state} onValueChange={setState}>
                         <SelectTrigger id="state">
                           <SelectValue placeholder="Select State" />
                         </SelectTrigger>
@@ -183,7 +189,7 @@ const Access = () => {
 
                   <div className="space-y-2">
                     <Label htmlFor="soilType">Soil Type</Label>
-                    <Select value={soilType} onValueChange={setSoilType} required>
+                    <Select value={soilType} onValueChange={setSoilType}>
                       <SelectTrigger id="soilType">
                         <SelectValue placeholder="Select Soil Type" />
                       </SelectTrigger>
@@ -219,7 +225,7 @@ const Access = () => {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="irrigation">Irrigation Type</Label>
-                      <Select value={irrigation} onValueChange={setIrrigation} required>
+                      <Select value={irrigation} onValueChange={setIrrigation}>
                         <SelectTrigger id="irrigation">
                           <SelectValue placeholder="Select Type" />
                         </SelectTrigger>
