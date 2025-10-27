@@ -134,10 +134,10 @@ const Access = () => {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="state">State</Label>
+                      <Label htmlFor="state">{t.access.state}</Label>
                       <Select value={state} onValueChange={setState}>
                         <SelectTrigger id="state">
-                          <SelectValue placeholder="Select State" />
+                          <SelectValue placeholder={t.access.selectState} />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="maharashtra">Maharashtra</SelectItem>

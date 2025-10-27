@@ -2,45 +2,56 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Cloud, Droplets, Sun, Wind, Smartphone, Database, MapPin, TrendingUp } from "lucide-react";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/hooks/useLanguage";
+import { getTranslation } from "@/lib/translations";
 
 const Index = () => {
+  const { language, setLanguage } = useLanguage();
+  const t = getTranslation(language);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">
+      {/* Language Switcher */}
+      <div className="container mx-auto px-4 pt-6 flex justify-end">
+        <LanguageSwitcher currentLanguage={language} onLanguageChange={setLanguage} />
+      </div>
+
       {/* Hero Section */}
-      <header className="container mx-auto px-4 py-20 text-center">
+      <header className="container mx-auto px-4 py-16 text-center">
         <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
-          Farmer-Centric AgriTech
+          {t.hero.badge}
         </Badge>
         <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-          Climate-Resilient Crop Prediction
+          {t.hero.title}
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-          AI-powered crop predictions for Indian farmers. Get localized weather insights and recommendations via SMS in your language.
+          {t.hero.subtitle}
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <Button size="lg" className="bg-primary hover:bg-primary-glow transition-all shadow-soft" onClick={() => window.location.href = '/access'}>
             <Smartphone className="mr-2 h-5 w-5" />
-            Get SMS Updates
+            {t.hero.getSMS}
           </Button>
           <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10" onClick={() => window.location.href = '/access'}>
             <Database className="mr-2 h-5 w-5" />
-            View Dashboard
+            {t.hero.viewDashboard}
           </Button>
         </div>
       </header>
 
       {/* Features Grid */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">{t.howItWorks}</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Card className="border-border hover:shadow-soft transition-all">
             <CardHeader>
               <MapPin className="h-10 w-10 text-primary mb-2" />
-              <CardTitle>Location-Based</CardTitle>
+              <CardTitle>{t.features.location.title}</CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription>
-                Enter your farm coordinates to get hyper-local predictions tailored to your exact location.
+                {t.features.location.desc}
               </CardDescription>
             </CardContent>
           </Card>
@@ -48,11 +59,11 @@ const Index = () => {
           <Card className="border-border hover:shadow-soft transition-all">
             <CardHeader>
               <Cloud className="h-10 w-10 text-accent mb-2" />
-              <CardTitle>Weather Integration</CardTitle>
+              <CardTitle>{t.features.weather.title}</CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription>
-                Real-time weather data from Google Earth Engine and IMD for accurate forecasting.
+                {t.features.weather.desc}
               </CardDescription>
             </CardContent>
           </Card>
@@ -60,11 +71,11 @@ const Index = () => {
           <Card className="border-border hover:shadow-soft transition-all">
             <CardHeader>
               <TrendingUp className="h-10 w-10 text-primary-glow mb-2" />
-              <CardTitle>AI Predictions</CardTitle>
+              <CardTitle>{t.features.ai.title}</CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription>
-                TensorFlow-powered models analyze climate patterns to predict optimal crop choices.
+                {t.features.ai.desc}
               </CardDescription>
             </CardContent>
           </Card>
@@ -72,11 +83,11 @@ const Index = () => {
           <Card className="border-border hover:shadow-soft transition-all">
             <CardHeader>
               <Smartphone className="h-10 w-10 text-secondary mb-2" />
-              <CardTitle>SMS Notifications</CardTitle>
+              <CardTitle>{t.features.sms.title}</CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription>
-                Get predictions via SMS in Marathi, Punjabi, Hindi, or English - no internet needed!
+                {t.features.sms.desc}
               </CardDescription>
             </CardContent>
           </Card>
@@ -86,27 +97,27 @@ const Index = () => {
       {/* Weather Stats Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="bg-gradient-to-br from-card to-muted/50 rounded-2xl p-8 md:p-12 border border-border shadow-soft">
-          <h2 className="text-3xl font-bold mb-8 text-center">Real-Time Climate Data</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">{t.climateData}</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="text-center p-6 bg-background/60 rounded-xl border border-border">
               <Sun className="h-12 w-12 text-yellow-500 mx-auto mb-3" />
               <div className="text-3xl font-bold text-foreground">32°C</div>
-              <div className="text-sm text-muted-foreground mt-1">Temperature</div>
+              <div className="text-sm text-muted-foreground mt-1">{t.temperature}</div>
             </div>
             <div className="text-center p-6 bg-background/60 rounded-xl border border-border">
               <Droplets className="h-12 w-12 text-blue-500 mx-auto mb-3" />
               <div className="text-3xl font-bold text-foreground">65%</div>
-              <div className="text-sm text-muted-foreground mt-1">Humidity</div>
+              <div className="text-sm text-muted-foreground mt-1">{t.humidity}</div>
             </div>
             <div className="text-center p-6 bg-background/60 rounded-xl border border-border">
               <Wind className="h-12 w-12 text-gray-500 mx-auto mb-3" />
               <div className="text-3xl font-bold text-foreground">12 km/h</div>
-              <div className="text-sm text-muted-foreground mt-1">Wind Speed</div>
+              <div className="text-sm text-muted-foreground mt-1">{t.windSpeed}</div>
             </div>
             <div className="text-center p-6 bg-background/60 rounded-xl border border-border">
               <Cloud className="h-12 w-12 text-accent mx-auto mb-3" />
               <div className="text-3xl font-bold text-foreground">85 mm</div>
-              <div className="text-sm text-muted-foreground mt-1">Rainfall (Month)</div>
+              <div className="text-sm text-muted-foreground mt-1">{t.rainfall}</div>
             </div>
           </div>
         </div>
@@ -114,7 +125,7 @@ const Index = () => {
 
       {/* Pilot Regions */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Pilot Regions Across India</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">{t.pilotRegions}</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
           <Card className="border-primary/20 bg-gradient-to-br from-card to-primary/5">
             <CardHeader>
