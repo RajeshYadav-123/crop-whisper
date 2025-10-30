@@ -214,7 +214,7 @@ export const translations = {
       phoneNumber: 'ਫ਼ੋਨ ਨੰਬਰ',
       sendOTP: 'OTP ਭੇਜੋ',
       getClimate: 'ਜਲਵਾਯੂ ਭਵਿੱਖਬਾਣੀ ਪ੍ਰਾਪਤ ਕਰੋ',
-      back: 'ਹੋਮ 'ਤੇ ਵਾਪਸ ਜਾਓ',
+      back: 'ਹੋਮ ਤੇ ਵਾਪਸ ਜਾਓ',
       newFarmer: 'ਨਵਾਂ ਕਿਸਾਨ? ਆਪਣੇ ਸਥਾਨਕ ਖੇਤੀਬਾੜੀ ਦਫ਼ਤਰ ਰਾਹੀਂ ਕਿਸਾਨ ID ਲਈ ਰਜਿਸਟਰ ਕਰੋ।',
       state: 'ਰਾਜ',
       district: 'ਜ਼ਿਲ੍ਹਾ',

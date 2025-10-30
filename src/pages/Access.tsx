@@ -8,6 +8,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Smartphone, User, Lock, MapPin, Droplets, Ruler, Leaf, IndianRupee } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/hooks/useLanguage";
+import { getTranslation } from "@/lib/translations";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const Access = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -20,9 +23,10 @@ const Access = () => {
   const [irrigation, setIrrigation] = useState("");
   const [currentCrop, setCurrentCrop] = useState("");
   const [budget, setBudget] = useState("");
-  const [language, setLanguage] = useState("");
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { language, setLanguage } = useLanguage();
+  const t = getTranslation(language);
 
   const handleSMSAccess = (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,13 +60,16 @@ const Access = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-muted/30 to-primary/5 p-4">
       <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-            Farmer Access Portal
-          </h1>
-          <p className="text-muted-foreground">
-            Get personalized crop predictions for your farm
-          </p>
+        <div className="flex justify-between items-center mb-8">
+          <div className="text-center flex-1">
+            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+              {t.access.title}
+            </h1>
+            <p className="text-muted-foreground">
+              {t.access.subtitle}
+            </p>
+          </div>
+          <LanguageSwitcher currentLanguage={language} onLanguageChange={setLanguage} />
         </div>
 
         <Card className="border-border shadow-soft">
@@ -273,7 +280,7 @@ const Access = () => {
 
                   <div className="space-y-2">
                     <Label htmlFor="language">Preferred Language</Label>
-                    <Select value={language} onValueChange={setLanguage}>
+                    <Select value={language} onValueChange={(value) => setLanguage(value as any)}>
                       <SelectTrigger id="language">
                         <SelectValue placeholder="Select Language" />
                       </SelectTrigger>
